@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/HibernateMapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.javacodegeeks.example.Order" table="orders">  <id
+            name="orderId" column="order_id">
+            <generator class="increment" />
+        </id>
+ <property name="orderName"
+            column="order_name" />
+        <!-- One-to-many relationship with OrderItem -->
+ <set name="orderItems" table="order_items" inverse="true"
+            cascade="all">
+            <key column="order_id" />
+            <one-to-many class="com.javacodegeeks.example.O
+rderItem" />
+        </set>
+    </class>
+    <class name="com.javacodegeeks.example.OrderItem" table="order_items">
+        <id name="itemId" column="item_id">
+            <generator class="increment" />
+        </id>
+        <property name="itemName" column="item_name" />
+        <!-- Many-to-one relationship with Order -->
+        <many-to-one name="order" class="com.javacodegeeks.
+example.Order" column="order_id" />
+    </class>
+</hibernate-mapping>

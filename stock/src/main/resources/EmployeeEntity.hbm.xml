@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.kgisl.capitalmarketing.EmployeeEntity" table="TBL_EMPLOYEE">
+
+        <!-- Primary Key Mapping -->
+        <id name="employeeId" column="employeeId">
+            <generator class="identity"/>
+        </id>
+        
+        <!-- Other Columns Mapping -->
+        <property name="email" column="email"/>
+        <property name="firstName" column="firstName"/>
+        <property name="lastName" column="lastName"/>
+        
+    </class>
+</hibernate-mapping>
